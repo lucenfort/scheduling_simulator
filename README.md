@@ -255,7 +255,3 @@ A evolução dos algoritmos de gerenciamento de processos apresenta métodos que
 Este projeto demonstra, de forma interativa e educativa, os fundamentos teóricos e os algoritmos de escalonamento, proporcionando uma compreensão prática do funcionamento de cada método.
 
 ---
-
-## Licença
-
-Este projeto está licenciado sob a [MIT License](LICENSE).
