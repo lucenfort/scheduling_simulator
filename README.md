@@ -3,25 +3,24 @@
 Este projeto é um simulador interativo escrito em Rust que demonstra, de forma educativa e prática, os principais algoritmos de escalonamento de processos. O simulador apresenta métodos tradicionais e modernos, permitindo acompanhar passo a passo a execução de cada algoritmo com saída colorida e interativa no terminal.
 
 ## Índice
-1. [Fundamentos Teóricos](#fundamentos-teóricos)
-    - [Processo 🖥️](#processo-️)
-    - [Threads 🔀](#threads-)
-2. [Algoritmos de Gerenciamento de Processos](#algoritmos-de-gerenciamento-de-processos)
-    - [Sistemas Operacionais Tradicionais](#sistemas-operacionais-tradicionais)
-        - [FCFS (First Come, First Served) ⏱️](#fcfs-first-come-first-served-️)
-        - [SJF (Shortest Job First) ⏳](#sjf-shortest-job-first-)
-        - [Round Robin (RR) 🔄](#round-robin-rr-)
-        - [Algoritmo de Prioridade ⭐](#algoritmo-de-prioridade-)
-        - [Escalonamento Multinível com Feedback 🔀💡](#escalonamento-multinível-com-feedback-)
-3. [Como Executar o Projeto](#como-executar-o-projeto)
-4. [Conclusão](#conclusão)
-5. [Licença](#licença)
+1. [Fundamentos Teóricos](#1-fundamentos-teoricos)
+    - [Processo 🖥️](#11-processo-️)
+    - [Threads 🔀](#12-threads-)
+2. [Algoritmos de Gerenciamento de Processos](#2-algoritmos-de-gerenciamento-de-processos)
+    - [Sistemas Operacionais Tradicionais](#21-sistemas-operacionais-tradicionais)
+        - [FCFS (First Come, First Served) ⏱️](#211-fcfs-first-come-first-served-️)
+        - [SJF (Shortest Job First) ⏳](#212-sjf-shortest-job-first-)
+        - [Round Robin (RR) 🔄](#213-round-robin-rr-)
+        - [Algoritmo de Prioridade ⭐](#214-algoritmo-de-prioridade-)
+        - [Escalonamento Multinível com Feedback 🔀💡](#215-escalonamento-multinivel-com-feedback-)
+3. [Como Executar o Projeto](#3-como-executar-o-projeto)
+4. [Conclusão](#4-conclusao)
 
 ---
 
-## 1. Fundamentos Teóricos
+## 1. Fundamentos Teóricos <a name="1-fundamentos-teoricos"></a>
 
-### 1.1. Processo 🖥️
+### 1.1. Processo 🖥️ <a name="11-processo-️"></a>
 Um **processo** é uma instância de um programa em execução, composto por:
 - **Código executável**
 - **Dados e variáveis**
@@ -29,7 +28,7 @@ Um **processo** é uma instância de um programa em execução, composto por:
 
 Cada processo possui seu próprio espaço de endereço, garantindo isolamento e segurança, o que é fundamental para a execução simultânea de múltiplas tarefas.
 
-### 1.2. Threads 🔀
+### 1.2. Threads 🔀 <a name="12-threads-"></a>
 Uma **thread** é a menor unidade de execução dentro de um processo. Diferentemente dos processos, as threads compartilham:
 - **Espaço de memória**
 - **Recursos do processo**
@@ -38,13 +37,11 @@ Isso permite a execução concorrente, especialmente em sistemas com múltiplos 
 
 ---
 
-## 2. Algoritmos de Gerenciamento de Processos
+## 2. Algoritmos de Gerenciamento de Processos <a name="2-algoritmos-de-gerenciamento-de-processos"></a>
 
-Cada método é detalhado com sua descrição, complexidade algorítmica, casos de uso e um fluxograma elaborado com Mermaid.
+### 2.1. Sistemas Operacionais Tradicionais <a name="21-sistemas-operacionais-tradicionais"></a>
 
-### 2.1. Sistemas Operacionais Tradicionais
-
-#### 2.1.1. FCFS (First Come, First Served) ⏱️
+#### 2.1.1. FCFS (First Come, First Served) ⏱️ <a name="211-fcfs-first-come-first-served-️"></a>
 - **Descrição:**  
   Atende os processos na ordem de chegada, sem preempção.
 - **Complexidade Algorítmica:**  
@@ -76,7 +73,7 @@ flowchart TD
 
 ---
 
-#### 2.1.2. SJF (Shortest Job First) ⏳
+#### 2.1.2. SJF (Shortest Job First) ⏳ <a name="212-sjf-shortest-job-first-"></a>
 - **Descrição:**  
   Prioriza a execução dos processos com o menor tempo de CPU estimado, reduzindo o tempo médio de espera.
 - **Complexidade Algorítmica:**  
@@ -110,7 +107,7 @@ flowchart TD
 
 ---
 
-#### 2.1.3. Round Robin (RR) 🔄
+#### 2.1.3. Round Robin (RR) 🔄 <a name="213-round-robin-rr-"></a>
 - **Descrição:**  
   Cada processo recebe uma fatia de tempo (time slice) de forma cíclica; após a expiração, o processo é interrompido e reinserido na fila.
 - **Complexidade Algorítmica:**  
@@ -147,7 +144,7 @@ flowchart TD
 ```
 ---
 
-#### 2.1.4. Algoritmo de Prioridade ⭐
+#### 2.1.4. Algoritmo de Prioridade ⭐ <a name="214-algoritmo-de-prioridade-"></a>
 - **Descrição:**  
   Processos são escalonados com base em prioridades atribuídas. Pode ser preemptivo ou não-preemptivo, utilizando técnicas de envelhecimento (aging) para evitar inanição.
 - **Complexidade Algorítmica:**  
@@ -185,7 +182,7 @@ flowchart TD
 
 ---
 
-#### 2.1.5. Escalonamento Multinível com Feedback 🔀💡
+#### 2.1.5. Escalonamento Multinível com Feedback 🔀💡 <a name="215-escalonamento-multinivel-com-feedback-"></a>
 - **Descrição:**  
   Utiliza múltiplas filas com políticas de escalonamento distintas; processos podem ser realocados entre filas conforme seu comportamento (uso de CPU).
 - **Complexidade Algorítmica:**  
@@ -232,39 +229,33 @@ flowchart TD
 ---
 
 
-## 3. Como Executar o Projeto
+## 3. Como Executar o Projeto <a name="3-como-executar-o-projeto"></a>
 
-Este simulador foi implementado em Rust e utiliza a biblioteca [colored](https://crates.io/crates/colored) para uma saída interativa e colorida no terminal. Siga os passos abaixo para executar o projeto:
+Este simulador foi implementado em Rust e utiliza a biblioteca [colored](https://crates.io/crates/colored) para uma saída interativa e colorida no terminal. 
 
-1. **Pré-requisitos:**  
-   - [Rust](https://rustup.rs/) (incluindo Cargo)
-
-2. **Clone o repositório:**
+### Passos:
+1. **Clone o repositório:**
    ```bash
    git clone https://github.com/lucenfort/scheduling_simulator.git
    cd scheduling_simulator
    ```
-
-3. **Compile e execute o projeto:**
+2. **Compile e execute o projeto:**
    ```bash
    cargo run
    ```
-
-4. **Interaja com o menu:**  
-   O simulador exibirá um menu interativo no terminal, permitindo escolher o método de escalonamento desejado e acompanhar a simulação em tempo real.
+3. **Interaja com o menu:**
+   O simulador exibirá um menu interativo no terminal.
 
 ---
 
-## 4. Conclusão
+## 4. Conclusão <a name="4-conclusao"></a>
 
-A evolução dos algoritmos de gerenciamento de processos apresenta métodos que vão desde abordagens simples e diretas até sistemas complexos que atendem a ambientes distribuídos e de tempo real. Cada algoritmo possui características específicas, variando em complexidade e aplicabilidade conforme os requisitos do sistema.
+A evolução dos algoritmos de gerenciamento de processos apresenta métodos que variam em complexidade e aplicabilidade conforme os requisitos do sistema. 
 
 Este projeto demonstra, de forma interativa e educativa, os fundamentos teóricos e os algoritmos de escalonamento, proporcionando uma compreensão prática do funcionamento de cada método.
 
 ---
 
-## 5. Licença
+## Licença
 
 Este projeto está licenciado sob a [MIT License](LICENSE).
-
----
