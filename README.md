@@ -1,5 +1,24 @@
 # Fundamentos Teóricos e Algoritmos de Gerenciamento de Processos 🚀
 
+Este projeto é um simulador interativo escrito em Rust que demonstra, de forma educativa e prática, os principais algoritmos de escalonamento de processos. O simulador apresenta métodos tradicionais e modernos, permitindo acompanhar passo a passo a execução de cada algoritmo com saída colorida e interativa no terminal.
+
+## Índice
+1. [Fundamentos Teóricos](#fundamentos-teóricos)
+    - [Processo 🖥️](#processo-️)
+    - [Threads 🔀](#threads-)
+2. [Algoritmos de Gerenciamento de Processos](#algoritmos-de-gerenciamento-de-processos)
+    - [Sistemas Operacionais Tradicionais](#sistemas-operacionais-tradicionais)
+        - [FCFS (First Come, First Served) ⏱️](#fcfs-first-come-first-served-️)
+        - [SJF (Shortest Job First) ⏳](#sjf-shortest-job-first-)
+        - [Round Robin (RR) 🔄](#round-robin-rr-)
+        - [Algoritmo de Prioridade ⭐](#algoritmo-de-prioridade-)
+        - [Escalonamento Multinível com Feedback 🔀💡](#escalonamento-multinível-com-feedback-)
+3. [Como Executar o Projeto](#como-executar-o-projeto)
+4. [Conclusão](#conclusão)
+5. [Licença](#licença)
+
+---
+
 ## 1. Fundamentos Teóricos
 
 ### 1.1. Processo 🖥️
@@ -126,7 +145,6 @@ flowchart TD
     I -- Não --> B
     I -- Sim --> J
 ```
-
 ---
 
 #### 2.1.4. Algoritmo de Prioridade ⭐
@@ -167,5 +185,86 @@ flowchart TD
 
 ---
 
-# Conclusão
-A evolução dos algoritmos de gerenciamento de processos apresenta métodos que vão desde abordagens simples e diretas até sistemas complexos que atendem a ambientes distribuídos e de tempo real. Cada algoritmo possui características específicas, variando em complexidade e aplicabilidade, conforme os requisitos do sistema. Este documento apresenta, de forma detalhada, os fundamentos teóricos, a análise da complexidade, casos de uso e fluxogramas interativos para facilitar o entendimento de cada método.
+#### 2.1.5. Escalonamento Multinível com Feedback 🔀💡
+- **Descrição:**  
+  Utiliza múltiplas filas com políticas de escalonamento distintas; processos podem ser realocados entre filas conforme seu comportamento (uso de CPU).
+- **Complexidade Algorítmica:**  
+  - Realocação dinâmica: **O(n log n)**
+- **Casos de Uso:**  
+  - Sistemas operacionais modernos que gerenciam cargas variadas.
+- **Observações:**  
+  - Oferece flexibilidade e adaptação dinâmica, embora a implementação seja complexa.
+
+**Fluxograma Escalonamento Multinível com Feedback:**
+```mermaid
+flowchart TD
+    A[Início]
+    B[Receber Processo]
+    C[Inserir na Fila Inicial]
+    D[Executar Processo]
+    E[Verificar Uso de CPU]
+    F[Uso Alto?]
+    G[Realocar para Fila de Alta Prioridade]
+    H[Uso Baixo?]
+    I[Realocar para Fila Inferior]
+    J[Processo Concluído?]
+    K[Remover Processo]
+    L[Retornar para a Fila Atualizada]
+    M[Fila Vazia?]
+    N[Fim]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E -- Sim (Alto) --> F
+    F -- Sim --> G
+    E -- Não (Baixo) --> I
+    G --> J
+    I --> J
+    J -- Sim --> K
+    J -- Não --> L
+    L --> M
+    M -- Não --> D
+    M -- Sim --> N
+```
+
+---
+
+
+## 3. Como Executar o Projeto
+
+Este simulador foi implementado em Rust e utiliza a biblioteca [colored](https://crates.io/crates/colored) para uma saída interativa e colorida no terminal. Siga os passos abaixo para executar o projeto:
+
+1. **Pré-requisitos:**  
+   - [Rust](https://rustup.rs/) (incluindo Cargo)
+
+2. **Clone o repositório:**
+   ```bash
+   git clone https://github.com/lucenfort/scheduling_simulator.git
+   cd scheduling_simulator
+   ```
+
+3. **Compile e execute o projeto:**
+   ```bash
+   cargo run
+   ```
+
+4. **Interaja com o menu:**  
+   O simulador exibirá um menu interativo no terminal, permitindo escolher o método de escalonamento desejado e acompanhar a simulação em tempo real.
+
+---
+
+## 4. Conclusão
+
+A evolução dos algoritmos de gerenciamento de processos apresenta métodos que vão desde abordagens simples e diretas até sistemas complexos que atendem a ambientes distribuídos e de tempo real. Cada algoritmo possui características específicas, variando em complexidade e aplicabilidade conforme os requisitos do sistema.
+
+Este projeto demonstra, de forma interativa e educativa, os fundamentos teóricos e os algoritmos de escalonamento, proporcionando uma compreensão prática do funcionamento de cada método.
+
+---
+
+## 5. Licença
+
+Este projeto está licenciado sob a [MIT License](LICENSE).
+
+---
